@@ -31,7 +31,8 @@ libraryDependencies ++= Seq(
 )
 
 Compile / PB.targets := Seq(
-  scalapb.gen() -> (Compile / sourceManaged).value / "scalapb"
+  PB.gens.java -> (Compile / sourceManaged).value,
+  scalapb.gen(javaConversions=true) -> (Compile / sourceManaged).value / "scalapb"
 )
 
 Test / PB.targets := Seq(
