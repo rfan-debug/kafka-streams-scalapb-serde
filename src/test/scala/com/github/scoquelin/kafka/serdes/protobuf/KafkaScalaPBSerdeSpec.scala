@@ -45,7 +45,7 @@ class KafkaScalaPBSerdeSpec extends AnyWordSpec with Matchers {
         fail()
       }
       catch {
-        case e: ClassCastException if e.getMessage.startsWith("com.google.protobuf.DynamicMessage cannot be cast to") => // Expected
+        case e: ClassCastException if e.getMessage.contains("com.google.protobuf.DynamicMessage cannot be cast to") => // Expected
       }
       finally {
         kafkaScalaPBSerde.close()
@@ -86,7 +86,7 @@ class KafkaScalaPBSerdeSpec extends AnyWordSpec with Matchers {
         fail()
       }
       catch {
-        case e: ClassCastException if e.getMessage.startsWith("com.google.protobuf.DynamicMessage cannot be cast to") => // Expected
+        case e: ClassCastException if e.getMessage.contains("com.google.protobuf.DynamicMessage cannot be cast to") => // Expected
       }
       finally {
         kafkaScalaPBSerde.close()
